@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pioneer Paper - Option 4: The Roll</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14213D;--deep:#0B1428;--gray:#A7ADB5;--light:#E6E8EB;--kraft:#C49A6C;--kraft2:#D6B48A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--deep);color:var(--navy);font-family:Manrope,sans-serif;overflow-x:hidden}
+[dir=rtl] body,[dir=rtl] button,[dir=rtl] input{font-family:Cairo,sans-serif}
+a{color:inherit}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(11,20,40,.92);backdrop-filter:blur(8px);border-bottom:1px solid #22314F}
+.bar{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.logo{color:#D5D9DE;font-weight:800;letter-spacing:.25em;font-size:18px}
+.logo span{color:var(--kraft)}
+nav{display:flex;gap:24px;font-size:14px}
+nav a{color:#D5D9DE;text-decoration:none}nav a:hover{color:var(--kraft)}
+.btn{min-height:44px;padding:0 20px;border-radius:22px;border:0;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;text-decoration:none;font-size:14px}
+.btn-k{background:var(--kraft);color:var(--deep)}
+.btn-o{background:transparent;color:#D5D9DE;border:1px solid #3A4A6B;font-family:Cairo,sans-serif}
+
+/* the unrolled sheet */
+.sheet{position:relative;width:min(1000px,92vw);margin:0 auto;padding:120px 0 340px;
+background:repeating-linear-gradient(180deg,rgba(0,0,0,.07) 0 2px,transparent 2px 9px),linear-gradient(90deg,#B98D5F,var(--kraft2) 12%,var(--kraft2) 88%,#B98D5F);
+box-shadow:0 0 60px rgba(0,0,0,.5)}
+section{padding:90px 7%;min-height:80vh;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.tag{font-size:12px;letter-spacing:.3em;font-weight:800;color:#5A4630}
+h1{margin:0;font-size:clamp(42px,7vw,84px);line-height:1;font-weight:800}
+h2{margin:0;font-size:clamp(32px,4.5vw,52px);line-height:1.05;font-weight:800}
+p{margin:0;font-size:17px;line-height:1.6;max-width:560px;color:#2B3550}
+.ar{font-family:Cairo,sans-serif;font-size:24px;color:var(--navy)}
+.hint{font-size:13px;letter-spacing:.2em;color:#5A4630;display:flex;align-items:center;gap:10px}
+.hint svg{animation:bob 1.6s infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+
+/* thickness */
+.gsm{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end}
+.counter{font-size:clamp(64px,12vw,140px);font-weight:800;line-height:.9;color:var(--navy)}
+.counter small{font-size:.3em;letter-spacing:.1em}
+.edge{flex:1 1 260px;display:flex;flex-direction:column;gap:3px;justify-content:flex-end;min-height:180px}
+.edge i{display:block;height:6px;background:var(--navy);border-radius:2px;opacity:.85}
+
+/* product stamps */
+.stamps{display:flex;flex-wrap:wrap;gap:24px}
+.stamp{flex:1 1 240px;border:3px solid var(--navy);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:10px;transform:rotate(-1.5deg);background:rgba(255,255,255,.12)}
+.stamp:nth-child(2){transform:rotate(1deg)}.stamp:nth-child(3){transform:rotate(-.5deg)}
+.stamp b{font-size:22px}
+.stamp div{font-size:14px;color:#2B3550}
+.stamp .ph{height:110px;border:1px dashed var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px}
+
+/* applications fold */
+.apps{display:flex;flex-wrap:wrap;gap:60px;justify-content:center;perspective:900px;padding:30px 0}
+.app{display:flex;flex-direction:column;align-items:center;gap:18px;font-weight:800}
+.book{width:220px;height:150px;position:relative;transform-style:preserve-3d}
+.book .l,.book .r{position:absolute;top:0;width:110px;height:150px;background:#8E949C;border:2px solid var(--navy)}
+.book .l{left:0;transform-origin:right center}
+.book .r{right:0;transform-origin:left center;background:var(--navy)}
+.box{width:160px;height:150px;position:relative;transform-style:preserve-3d}
+.box .base{position:absolute;inset:40px 0 0 0;background:#8E949C;border:2px solid var(--navy)}
+.box .lid{position:absolute;left:0;right:0;top:40px;height:40px;background:var(--navy);transform-origin:center top}
+
+/* trust */
+.stats{display:flex;flex-wrap:wrap;gap:28px}
+.stats div{flex:1 1 180px}
+.stats b{display:block;font-size:44px;color:var(--navy)}
+.stats span{font-size:14px;color:#2B3550}
+.map{height:260px;border:2px dashed var(--navy);display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:6px}
+
+/* form */
+form{background:var(--navy);color:var(--light);border-radius:10px;padding:32px;display:flex;flex-direction:column;gap:16px;max-width:620px}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+.f{flex:1 1 200px;display:flex;flex-direction:column;gap:6px}
+label{font-size:13px;color:var(--gray)}
+input{min-height:44px;border-radius:8px;border:1px solid #3A4A6B;background:var(--deep);color:var(--light);padding:0 12px;font-size:15px}
+.done{text-align:center;color:var(--gray);font-size:13px;padding-top:40px}
+
+/* fixed roll */
+#roll{position:fixed;left:0;bottom:0;width:100vw;height:330px;pointer-events:none;z-index:10}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<div class="logo">PIONE<span>E</span>R</div>
+<nav><a href="#board" data-ar="الكرتون">Board</a><a href="#products" data-ar="المنتجات">Products</a><a href="#apps" data-ar="الاستخدامات">Uses</a><a href="#client" data-ar="تواصل">Contact</a></nav>
+<div style="display:flex;gap:10px"><button class="btn btn-o" id="lang">EN | عربي</button><a class="btn btn-k" href="#client" data-ar="كن عميلاً">Become a Client</a></div>
+</div></header>
+
+<main class="sheet" id="sheet">
+<section>
+<div class="tag" data-ar="بايونير للصناعات الورقية">PIONEER PAPER INDUSTRIES</div>
+<h1 data-ar="نبني القوة، ونصنع القيمة">Building strength, creating value.</h1>
+<div class="ar" dir="rtl" lang="ar">نبني الجودة ... ونصنع الثقة</div>
+<div class="hint"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg><span data-ar="مرّر لفك اللفة">SCROLL TO UNROLL</span></div>
+</section>
+
+<section id="board">
+<div class="tag" data-ar="المنتج">THE BOARD</div>
+<h2 data-ar="كرتون رمادي من ٧٠٠ إلى ٢٠٠٠ جرام">Grey board, 700 to 2000 GSM.</h2>
+<p data-ar="ألواح بعرض ١٤٠ سم وكثافات متعددة، للتغليف والأغلفة الصلبة الفاخرة.">Sheets at 140 cm width, multiple densities, made for packaging and premium hard covers.</p>
+</section>
+
+<section id="thick">
+<div class="tag" data-ar="السُمك">THICKNESS</div>
+<div class="gsm">
+<div class="counter"><span id="gsmv">700</span><small> GSM</small></div>
+<div class="edge" id="edge"></div>
+</div>
+<p data-ar="استمر في التمرير لترى اللوح يزداد سُمكاً.">Keep scrolling and watch the board get thicker.</p>
+</section>
+
+<section id="products">
+<div class="tag" data-ar="المنتجات">PRODUCTS</div>
+<h2 data-ar="ألواحنا">Our boards</h2>
+<div class="stamps">
+<div class="stamp"><div class="ph">Product photo</div><b data-ar="كرتون رمادي">Grey Board</b><div>700 – 2000 GSM · 140 cm</div></div>
+<div class="stamp"><div class="ph">Product photo</div><b data-ar="كاردو بورد">Cardo Board</b><div data-ar="كثافات متعددة">Multiple densities</div></div>
+<div class="stamp"><div class="ph">Product photo</div><b data-ar="مقاسات خاصة">Custom Sheets</b><div data-ar="مقصوص على مقاسك">Cut to your size</div></div>
+</div>
+</section>
+
+<section id="apps">
+<div class="tag" data-ar="الاستخدامات">APPLICATIONS</div>
+<h2 data-ar="من لوح إلى منتج">From sheet to product.</h2>
+<div class="apps">
+<div class="app"><div class="book" id="book"><div class="l"></div><div class="r"></div></div><span data-ar="أغلفة كتب صلبة">Hardcover books</span></div>
+<div class="app"><div class="box" id="box"><div class="base"></div><div class="lid"></div></div><span data-ar="علب هدايا صلبة">Rigid gift boxes</span></div>
+</div>
+</section>
+
+<section id="trust">
+<div class="tag" data-ar="الثقة">TRUST</div>
+<h2 data-ar="موثوق في مصر والخليج">Trusted across Egypt and the Gulf.</h2>
+<div class="stats">
+<div><b>[X] t</b><span data-ar="الطاقة الشهرية">Monthly capacity</span></div>
+<div><b>[X]</b><span data-ar="دول نخدمها">Countries served</span></div>
+<div><b>[X]+</b><span data-ar="عملاء">Active clients</span></div>
+</div>
+<div class="map">Map: Egypt and Gulf client cities</div>
+</section>
+
+<section id="client">
+<div class="tag" data-ar="آخر اللفة">END OF THE ROLL</div>
+<h2 data-ar="كن عميلاً">Become a client.</h2>
+<form onsubmit="event.preventDefault();this.querySelector('button').textContent='Thanks, we will contact you'">
+<div class="row">
+<div class="f"><label for="n" data-ar="الاسم">Name</label><input id="n"></div>
+<div class="f"><label for="c" data-ar="الشركة">Company</label><input id="c"></div>
+</div>
+<div class="row">
+<div class="f"><label for="k" data-ar="الدولة">Country</label><input id="k"></div>
+<div class="f"><label for="g" data-ar="الجرام المطلوب">GSM needed</label><input id="g"></div>
+</div>
+<button class="btn btn-k" style="align-self:flex-start" data-ar="إرسال">Send</button>
+</form>
+<div class="done">Pioneer Paper Industries · بايونير للصناعات الورقية</div>
+</section>
+</main>
+
+<canvas id="roll" aria-hidden="true"></canvas>
+
+<script>
+const cv=document.getElementById('roll'),ctx=cv.getContext('2d'),sheet=document.getElementById('sheet');
+const H=330;
+function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+addEventListener('resize',()=>{size();draw()});size();
+
+const edge=document.getElementById('edge');for(let i=0;i<20;i++){edge.appendChild(document.createElement('i'))}
+const bars=[...edge.children];
+
+function prog(el){const r=el.getBoundingClientRect();return Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height*.4)))}
+
+function draw(){
+  const max=document.documentElement.scrollHeight-innerHeight, p=max>0?Math.min(1,scrollY/max):0;
+  const R=150, core=22, r=core+(R-core)*(1-p);
+  const sr=sheet.getBoundingClientRect(), x0=sr.left, x1=sr.right, w=x1-x0;
+  const cy=H-r-20, ex=r*.32;
+  ctx.clearRect(0,0,innerWidth,H);
+  // shadow
+  ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.ellipse(innerWidth/2,H-12,w*.55,10,0,0,7);ctx.fill();
+  // body
+  const g=ctx.createLinearGradient(0,cy-r,0,cy+r);
+  g.addColorStop(0,'#7A5A38');g.addColorStop(.25,'#D9B88E');g.addColorStop(.45,'#E2C29A');g.addColorStop(.8,'#9C7448');g.addColorStop(1,'#5E4329');
+  ctx.fillStyle=g;ctx.fillRect(x0,cy-r,w,2*r);
+  // flutes spinning with scroll
+  const ph=scrollY/ r, n=Math.max(10,Math.round(r/3.5));
+  ctx.strokeStyle='rgba(60,40,20,.28)';ctx.lineWidth=1;
+  for(let i=0;i<n;i++){const t=(i/n)*Math.PI*2+ph,c=Math.cos(t);if(Math.sin(t)<0)continue;const y=cy-r*c;ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x1,y);ctx.stroke()}
+  // right end (spiral layers)
+  ctx.save();ctx.translate(x1,cy);
+  ctx.fillStyle='#B98D5F';ctx.beginPath();ctx.ellipse(0,0,ex,r,0,0,7);ctx.fill();
+  ctx.strokeStyle='rgba(70,45,20,.45)';
+  for(let k=r;k>core;k-=4){ctx.beginPath();ctx.ellipse(0,0,ex*k/r,k,0,0,7);ctx.stroke()}
+  ctx.fillStyle='#1E2A44';ctx.beginPath();ctx.ellipse(0,0,ex*core/r,core,0,0,7);ctx.fill();
+  ctx.restore();
+  // left end edge
+  ctx.fillStyle='#8E6A44';ctx.beginPath();ctx.ellipse(x0,cy,ex,r,0,Math.PI/2,Math.PI*1.5);ctx.fill();
+  // GSM counter
+  const t=prog(document.getElementById('thick'));
+  const gsm=Math.round((700+1300*t)/50)*50;document.getElementById('gsmv').textContent=gsm;
+  const on=Math.round(4+16*t);bars.forEach((b,i)=>b.style.opacity=i<on?.85:.08);
+  // folds
+  const a=prog(document.getElementById('apps')),f=Math.min(1,Math.max(0,(a-.25)/.5));
+  document.querySelector('#book .l').style.transform=`rotateY(${f*-150}deg)`;
+  document.querySelector('#box .lid').style.transform=`rotateX(${-100+f*100}deg) translateY(${-f*40}px)`;
+}
+addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});draw();
+
+// language toggle
+const els=[...document.querySelectorAll('[data-ar]')];els.forEach(e=>e.dataset.en=e.textContent);
+let ar=false;document.getElementById('lang').onclick=()=>{ar=!ar;document.documentElement.dir=ar?'rtl':'ltr';document.documentElement.lang=ar?'ar':'en';els.forEach(e=>e.textContent=ar?e.dataset.ar:e.dataset.en);draw()};
+</script>
+</body>
+</html>
