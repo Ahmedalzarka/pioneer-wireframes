@@ -3,217 +3,295 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pioneer Paper - Option 4: The Roll</title>
+<title>Pioneer Paper Industries | Grey Board & Industrial Paper</title>
+<meta name="description" content="Grey board 700 to 2000 GSM, 140 cm sheets, multiple densities. For packaging and premium hard covers in Egypt and the Gulf.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/e634b8ad-e0cb-4be2-b460-b6654c85996f.jpg">
 <style>
-:root{--navy:#14213D;--deep:#0B1428;--gray:#A7ADB5;--light:#E6E8EB;--kraft:#C49A6C;--kraft2:#D6B48A}
+:root{--navy:#14213D;--deep:#0A1326;--ink:#0E1A33;--silver:#C9CED6;--gray:#A7ADB5;--kraft:#C49A6C;--kraft2:#E2C7A2;--line:rgba(201,206,214,.14)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--deep);color:var(--navy);font-family:Manrope,sans-serif;overflow-x:hidden}
-[dir=rtl] body,[dir=rtl] button,[dir=rtl] input{font-family:Cairo,sans-serif}
+body{margin:0;background:var(--deep);color:#E8EAEE;font-family:Manrope,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[dir=rtl] body,[dir=rtl] button,[dir=rtl] input,[dir=rtl] select{font-family:Cairo,sans-serif}
 a{color:inherit}
-header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(11,20,40,.92);backdrop-filter:blur(8px);border-bottom:1px solid #22314F}
-.bar{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
-.logo{color:#D5D9DE;font-weight:800;letter-spacing:.25em;font-size:18px}
-.logo span{color:var(--kraft)}
-nav{display:flex;gap:24px;font-size:14px}
-nav a{color:#D5D9DE;text-decoration:none}nav a:hover{color:var(--kraft)}
-.btn{min-height:44px;padding:0 20px;border-radius:22px;border:0;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;text-decoration:none;font-size:14px}
-.btn-k{background:var(--kraft);color:var(--deep)}
-.btn-o{background:transparent;color:#D5D9DE;border:1px solid #3A4A6B;font-family:Cairo,sans-serif}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
 
-/* the unrolled sheet */
-.sheet{position:relative;width:min(1000px,92vw);margin:0 auto;padding:400px 0 120px;
-background:repeating-linear-gradient(180deg,rgba(0,0,0,.07) 0 2px,transparent 2px 9px),linear-gradient(90deg,#B98D5F,var(--kraft2) 12%,var(--kraft2) 88%,#B98D5F);
-box-shadow:0 0 60px rgba(0,0,0,.5)}
-section{padding:90px 7%;min-height:80vh;display:flex;flex-direction:column;justify-content:center;gap:22px}
-.tag{font-size:12px;letter-spacing:.3em;font-weight:800;color:#5A4630}
-h1{margin:0;font-size:clamp(42px,7vw,84px);line-height:1;font-weight:800}
-h2{margin:0;font-size:clamp(32px,4.5vw,52px);line-height:1.05;font-weight:800}
-p{margin:0;font-size:17px;line-height:1.6;max-width:560px;color:#2B3550}
-.ar{font-family:Cairo,sans-serif;font-size:24px;color:var(--navy)}
-.hint{font-size:13px;letter-spacing:.2em;color:#5A4630;display:flex;align-items:center;gap:10px}
-.hint svg{animation:bob 1.6s infinite}
-@keyframes bob{50%{transform:translateY(6px)}}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:30;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+header.solid{background:rgba(10,19,38,.86);backdrop-filter:blur(14px);border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 28px;max-width:1340px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:38px;width:auto;border-radius:6px}
+.brand span{font-weight:800;letter-spacing:.32em;font-size:13px;color:var(--silver)}
+nav{display:flex;gap:30px;font-size:14px}
+nav a{text-decoration:none;color:var(--silver);opacity:.85}nav a:hover{opacity:1;color:var(--kraft2)}
+.actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-k{background:var(--kraft);color:var(--deep)}.btn-k:hover{background:var(--kraft2)}
+.btn-g{background:transparent;color:var(--silver);border:1px solid rgba(201,206,214,.35);font-family:Cairo,sans-serif}
+@media(max-width:860px){nav{display:none}.brand span{display:none}}
+
+/* scroll film */
+.film{position:relative;height:420vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#0d1a33}
+.stage video,.stage .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage .poster{z-index:0}.stage video{z-index:1}
+.shade{position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at center,transparent 45%,rgba(6,12,26,.55) 100%),linear-gradient(180deg,rgba(6,12,26,.35) 0%,transparent 22%,transparent 70%,var(--deep) 100%)}
+.cap{position:absolute;z-index:3;left:0;right:0;padding:0 28px;max-width:1240px;margin:0 auto;opacity:0;transform:translateY(24px);transition:none;pointer-events:none}
+.cap.c1{top:15vh;text-align:center}
+.cap.c2{bottom:14vh}
+.cap.c3{bottom:14vh;text-align:end}
+.eyebrow{font-size:12px;letter-spacing:.38em;font-weight:800;color:var(--kraft2);text-transform:uppercase}
+.cap h1{margin:14px 0 0;font-size:clamp(44px,7.4vw,108px);line-height:.95;font-weight:800;letter-spacing:-.02em;color:#F4F5F7}
+.cap h2{margin:12px 0 0;font-size:clamp(34px,5vw,72px);line-height:1;font-weight:800;letter-spacing:-.015em}
+.cap p{margin:14px 0 0;font-size:18px;color:var(--silver);max-width:520px}
+.cap.c3 p{margin-inline-start:auto}
+.cap .ar{font-family:Cairo,sans-serif;font-size:clamp(20px,2.4vw,30px);color:var(--silver);margin-top:14px}
+.cap.c3 .btn{pointer-events:auto;margin-top:22px}
+.hint{position:absolute;z-index:3;bottom:28px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.34em;color:var(--silver);display:flex;flex-direction:column;align-items:center;gap:10px;transition:opacity .4s}
+.hint i{width:1px;height:42px;background:linear-gradient(var(--kraft),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.rail{position:absolute;z-index:3;inset-inline-end:26px;top:50%;transform:translateY(-50%);width:2px;height:160px;background:var(--line);border-radius:2px}
+.rail b{position:absolute;left:0;top:0;width:100%;background:var(--kraft);border-radius:2px;height:0}
+
+/* sections */
+section.blk{padding:130px 0;position:relative}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.h2{font-size:clamp(34px,4.6vw,64px);line-height:1.02;font-weight:800;letter-spacing:-.015em;margin:14px 0 0}
+.lead{font-size:18px;line-height:1.65;color:var(--gray);max-width:520px;margin:20px 0 0}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+.shot{border-radius:22px;overflow:hidden;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.45)}
+.shot img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform .2s linear}
+.shot::after{content:"";position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 1px var(--line)}
 
 /* thickness */
-.gsm{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end}
-.counter{font-size:clamp(64px,12vw,140px);font-weight:800;line-height:.9;color:var(--navy)}
-.counter small{font-size:.3em;letter-spacing:.1em}
-.edge{flex:1 1 260px;display:flex;flex-direction:column;gap:3px;justify-content:flex-end;min-height:180px}
-.edge i{display:block;height:6px;background:var(--navy);border-radius:2px;opacity:.85}
+.gsm{display:flex;align-items:baseline;gap:12px;margin-top:34px}
+.gsm b{font-size:clamp(72px,10vw,140px);font-weight:800;line-height:.85;color:#F4F5F7;font-variant-numeric:tabular-nums}
+.gsm span{font-size:20px;letter-spacing:.2em;color:var(--kraft2);font-weight:800}
+.meter{height:3px;background:var(--line);border-radius:3px;margin-top:22px;max-width:460px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--kraft),var(--kraft2))}
+.scale{display:flex;justify-content:space-between;max-width:460px;font-size:12px;color:var(--gray);margin-top:10px;letter-spacing:.1em}
 
-/* product stamps */
-.stamps{display:flex;flex-wrap:wrap;gap:24px}
-.stamp{flex:1 1 240px;border:3px solid var(--navy);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:10px;transform:rotate(-1.5deg);background:rgba(255,255,255,.12)}
-.stamp:nth-child(2){transform:rotate(1deg)}.stamp:nth-child(3){transform:rotate(-.5deg)}
-.stamp b{font-size:22px}
-.stamp div{font-size:14px;color:#2B3550}
-.stamp .ph{height:110px;border:1px dashed var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px}
+/* specs */
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(180deg,rgba(20,33,61,.7),rgba(10,19,38,.7))}
+.spec{padding:36px 30px;border-inline-end:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.spec:last-child{border:0}
+.spec svg{color:var(--kraft2)}
+.spec small{font-size:11px;letter-spacing:.3em;color:var(--gray);font-weight:800}
+.spec strong{font-size:24px;font-weight:800;color:#F4F5F7}
+@media(max-width:900px){.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.spec:nth-child(2){border-inline-end:0}.spec:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:520px){.specs{grid-template-columns:1fr}.spec{border-inline-end:0;border-bottom:1px solid var(--line)}}
 
-/* applications fold */
-.apps{display:flex;flex-wrap:wrap;gap:60px;justify-content:center;perspective:900px;padding:30px 0}
-.app{display:flex;flex-direction:column;align-items:center;gap:18px;font-weight:800}
-.book{width:220px;height:150px;position:relative;transform-style:preserve-3d}
-.book .l,.book .r{position:absolute;top:0;width:110px;height:150px;background:#8E949C;border:2px solid var(--navy)}
-.book .l{left:0;transform-origin:right center}
-.book .r{right:0;transform-origin:left center;background:var(--navy)}
-.box{width:160px;height:150px;position:relative;transform-style:preserve-3d}
-.box .base{position:absolute;inset:40px 0 0 0;background:#8E949C;border:2px solid var(--navy)}
-.box .lid{position:absolute;left:0;right:0;top:40px;height:40px;background:var(--navy);transform-origin:center top}
+/* uses */
+.uses{list-style:none;padding:0;margin:30px 0 0;display:flex;flex-direction:column}
+.uses li{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-top:1px solid var(--line);font-size:20px;font-weight:600}
+.uses li span{color:var(--gray);font-size:14px;font-weight:400}
 
-/* trust */
-.stats{display:flex;flex-wrap:wrap;gap:28px}
-.stats div{flex:1 1 180px}
-.stats b{display:block;font-size:44px;color:var(--navy)}
-.stats span{font-size:14px;color:#2B3550}
-.map{height:260px;border:2px dashed var(--navy);display:flex;align-items:center;justify-content:center;font-size:14px;border-radius:6px}
+/* factory */
+.factory{position:relative;height:110vh;overflow:hidden}
+.factory img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+.factory .ov{position:absolute;inset:0;background:linear-gradient(180deg,var(--deep) 0%,rgba(10,19,38,.15) 30%,rgba(10,19,38,.25) 60%,var(--deep) 100%)}
+.factory .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:16vh}
+.stats{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
+.stat{flex:1 1 200px;padding:24px 26px;border-radius:18px;background:rgba(10,19,38,.55);backdrop-filter:blur(12px);border:1px solid var(--line)}
+.stat b{display:block;font-size:40px;font-weight:800;color:#F4F5F7}
+.stat span{font-size:13px;color:var(--gray);letter-spacing:.06em}
+
+/* values */
+.values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.val{padding:34px;border-radius:20px;border:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.val svg{color:var(--kraft2)}
+.val b{font-size:20px}.val span{color:var(--gray);font-size:15px;line-height:1.6}
+@media(max-width:820px){.values{grid-template-columns:1fr}}
 
 /* form */
-form{background:var(--navy);color:var(--light);border-radius:10px;padding:32px;display:flex;flex-direction:column;gap:16px;max-width:620px}
-.row{display:flex;flex-wrap:wrap;gap:14px}
-.f{flex:1 1 200px;display:flex;flex-direction:column;gap:6px}
-label{font-size:13px;color:var(--gray)}
-input{min-height:44px;border-radius:8px;border:1px solid #3A4A6B;background:var(--deep);color:var(--light);padding:0 12px;font-size:15px}
-.done{text-align:center;color:var(--gray);font-size:13px;padding-top:40px}
+.reg{background:linear-gradient(180deg,var(--deep),var(--navy))}
+.card{background:rgba(10,19,38,.6);border:1px solid var(--line);border-radius:26px;padding:42px;backdrop-filter:blur(10px)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:620px){.grid2{grid-template-columns:1fr}.card{padding:26px}}
+.f{display:flex;flex-direction:column;gap:8px}
+label{font-size:13px;color:var(--gray);letter-spacing:.04em}
+input,select{min-height:50px;border-radius:12px;border:1px solid rgba(201,206,214,.22);background:rgba(20,33,61,.6);color:#F4F5F7;padding:0 14px;font-size:15px;font-family:inherit}
+input:focus,select:focus{outline:2px solid var(--kraft);outline-offset:1px;border-color:transparent}
+.ok{display:none;padding:18px;border-radius:12px;background:rgba(196,154,108,.15);color:var(--kraft2);margin-top:16px}
 
-/* fixed roll */
-#roll{position:fixed;left:0;top:64px;width:100vw;height:330px;pointer-events:none;z-index:10}
+footer{border-top:1px solid var(--line);padding:46px 0;color:var(--gray);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.wa{position:fixed;z-index:25;bottom:22px;inset-inline-end:22px;width:56px;height:56px;border-radius:50%;background:#1f9d55;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
-<header><div class="bar">
-<div class="logo">PIONE<span>E</span>R</div>
-<nav><a href="#board" data-ar="الكرتون">Board</a><a href="#products" data-ar="المنتجات">Products</a><a href="#apps" data-ar="الاستخدامات">Uses</a><a href="#client" data-ar="تواصل">Contact</a></nav>
-<div style="display:flex;gap:10px"><button class="btn btn-o" id="lang">EN | عربي</button><a class="btn btn-k" href="#client" data-ar="كن عميلاً">Become a Client</a></div>
+
+<header id="hdr"><div class="bar">
+<a class="brand" href="#top"><img src="logo.jpg" alt="Pioneer Paper Industries"><span>PIONEER</span></a>
+<nav><a href="#board" data-ar="الكرتون">Grey Board</a><a href="#uses" data-ar="الاستخدامات">Applications</a><a href="#factory" data-ar="المصنع">Factory</a><a href="#register" data-ar="تواصل">Contact</a></nav>
+<div class="actions"><button class="btn btn-g" id="lang" aria-label="Switch language">EN | عربي</button><a class="btn btn-k" href="#register" data-ar="افتح حساب تجاري">Open Trade Account</a></div>
 </div></header>
 
-<main class="sheet" id="sheet">
-<section>
-<div class="tag" data-ar="بايونير للصناعات الورقية">PIONEER PAPER INDUSTRIES</div>
-<h1 data-ar="نبني القوة، ونصنع القيمة">Building strength, creating value.</h1>
+<div class="film" id="top">
+<div class="stage">
+<img class="poster" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/e634b8ad-e0cb-4be2-b460-b6654c85996f.jpg" alt="">
+<video id="film" muted playsinline preload="auto" aria-hidden="true"></video>
+<div class="shade"></div>
+<div class="cap c1" id="c1">
+<div class="eyebrow" data-ar="بايونير للصناعات الورقية">Pioneer Paper Industries</div>
+<h1 data-ar="نبني القوة.">Building strength.</h1>
 <div class="ar" dir="rtl" lang="ar">نبني الجودة ... ونصنع الثقة</div>
-<div class="hint"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg><span data-ar="مرّر لفك اللفة">SCROLL TO UNROLL</span></div>
-</section>
-
-<section id="board">
-<div class="tag" data-ar="المنتج">THE BOARD</div>
-<h2 data-ar="كرتون رمادي من ٧٠٠ إلى ٢٠٠٠ جرام">Grey board, 700 to 2000 GSM.</h2>
-<p data-ar="ألواح بعرض ١٤٠ سم وكثافات متعددة، للتغليف والأغلفة الصلبة الفاخرة.">Sheets at 140 cm width, multiple densities, made for packaging and premium hard covers.</p>
-</section>
-
-<section id="thick">
-<div class="tag" data-ar="السُمك">THICKNESS</div>
-<div class="gsm">
-<div class="counter"><span id="gsmv">700</span><small> GSM</small></div>
-<div class="edge" id="edge"></div>
 </div>
-<p data-ar="استمر في التمرير لترى اللوح يزداد سُمكاً.">Keep scrolling and watch the board get thicker.</p>
-</section>
-
-<section id="products">
-<div class="tag" data-ar="المنتجات">PRODUCTS</div>
-<h2 data-ar="ألواحنا">Our boards</h2>
-<div class="stamps">
-<div class="stamp"><div class="ph">Product photo</div><b data-ar="كرتون رمادي">Grey Board</b><div>700 – 2000 GSM · 140 cm</div></div>
-<div class="stamp"><div class="ph">Product photo</div><b data-ar="كاردو بورد">Cardo Board</b><div data-ar="كثافات متعددة">Multiple densities</div></div>
-<div class="stamp"><div class="ph">Product photo</div><b data-ar="مقاسات خاصة">Custom Sheets</b><div data-ar="مقصوص على مقاسك">Cut to your size</div></div>
+<div class="cap c2 wrap" id="c2">
+<div class="eyebrow" data-ar="كرتون رمادي">Grey board</div>
+<h2 data-ar="من ٧٠٠ إلى ٢٠٠٠ جرام.">700 to 2000 GSM.</h2>
+<p data-ar="ألواح بعرض ١٤٠ سم بكثافات متعددة، تُصنع بدقة لكل طلبية.">140 cm sheets in multiple densities, produced precisely to every order.</p>
 </div>
-</section>
+<div class="cap c3 wrap" id="c3">
+<div class="eyebrow" data-ar="مصر والخليج">Egypt and the Gulf</div>
+<h2 data-ar="ملفوف بإحكام. مصنوع ليدوم.">Wound tight. Built to last.</h2>
+<p data-ar="المورد الموثوق لمصانع التغليف والأغلفة الصلبة.">The trusted supplier for packaging and hard cover producers.</p>
+<a class="btn btn-k" href="#register" data-ar="كن عميلاً">Become a Client</a>
+</div>
+<div class="hint" id="hint"><span data-ar="مرّر">SCROLL</span><i></i></div>
+<div class="rail"><b id="rail"></b></div>
+</div>
+</div>
 
-<section id="apps">
-<div class="tag" data-ar="الاستخدامات">APPLICATIONS</div>
-<h2 data-ar="من لوح إلى منتج">From sheet to product.</h2>
-<div class="apps">
-<div class="app"><div class="book" id="book"><div class="l"></div><div class="r"></div></div><span data-ar="أغلفة كتب صلبة">Hardcover books</span></div>
-<div class="app"><div class="box" id="box"><div class="base"></div><div class="lid"></div></div><span data-ar="علب هدايا صلبة">Rigid gift boxes</span></div>
+<section class="blk" id="board">
+<div class="wrap split">
+<div class="reveal">
+<div class="eyebrow" data-ar="السُمك">Thickness</div>
+<div class="h2" data-ar="سُمك لكل منتج.">A thickness for every product.</div>
+<p class="lead" data-ar="من ألواح التغليف الخفيفة إلى الأغلفة الصلبة الثقيلة، نُنتج بالكثافة التي يحتاجها خط إنتاجك.">From light packaging board to heavy book covers, we produce the density your line needs.</p>
+<div class="gsm"><b id="gsm">700</b><span>GSM</span></div>
+<div class="meter"><i id="meter"></i></div>
+<div class="scale"><span>700</span><span>1000</span><span>1500</span><span>2000</span></div>
+</div>
+<div class="shot reveal" style="aspect-ratio:16/10"><img class="par" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/0e18e5f7-cc8d-405e-befc-8c71c7f57093.jpg" alt="Grey board stacks from thin to thick" loading="lazy"></div>
 </div>
 </section>
 
-<section id="trust">
-<div class="tag" data-ar="الثقة">TRUST</div>
-<h2 data-ar="موثوق في مصر والخليج">Trusted across Egypt and the Gulf.</h2>
+<section class="blk" style="padding-top:20px">
+<div class="wrap">
+<div class="specs reveal">
+<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5"/></svg><small data-ar="كرتون رمادي">GREY BOARD</small><strong>700 – 2000 GSM</strong></div>
+<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 7v4M21 7v4M7 7v2M11 7v2M15 7v2M19 7v2M3 15h18v4H3z"/></svg><small data-ar="الألواح">SHEETS</small><strong data-ar="عرض ١٤٠ سم">140 cm width</strong></div>
+<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="18" cy="6" r="1.5"/><circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/><circle cx="6" cy="18" r="1.5"/><circle cx="12" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg><small data-ar="الكثافة">DENSITY</small><strong data-ar="كثافات متعددة">Multiple densities</strong></div>
+<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8"/></svg><small data-ar="الاستخدامات">APPLICATIONS</small><strong data-ar="تغليف وأغلفة صلبة">Packaging & hard covers</strong></div>
+</div>
+</div>
+</section>
+
+<section class="blk" id="uses">
+<div class="wrap split">
+<div class="shot reveal" style="aspect-ratio:16/10"><img class="par" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/61e3d100-a5b8-495b-823d-f70a747e562b.jpg" alt="Hard cover book and rigid box with grey board core" loading="lazy"></div>
+<div class="reveal">
+<div class="eyebrow" data-ar="الاستخدامات">Applications</div>
+<div class="h2" data-ar="القوة التي لا تراها.">The strength you don't see.</div>
+<p class="lead" data-ar="داخل كل غلاف فاخر وكل علبة صلبة، يوجد لوح يحمل الشكل. نحن نصنع هذا اللوح.">Inside every premium cover and rigid box is a board that holds its shape. We make that board.</p>
+<ul class="uses">
+<li><b data-ar="أغلفة كتب صلبة">Premium hard covers</b><span data-ar="كتب، دفاتر، ألبومات">Books, notebooks, albums</span></li>
+<li><b data-ar="تغليف صلب">Rigid packaging</b><span data-ar="علب هدايا وعلب فاخرة">Gift and luxury boxes</span></li>
+<li><b data-ar="مقاسات خاصة">Custom sheets</b><span data-ar="مقصوص على مقاسك">Cut to your size</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="factory" id="factory">
+<img class="fpar" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/d9e83bd6-3072-4e1e-898f-5ac048a486cc.jpg" alt="Pioneer production floor with grey board pallets and kraft rolls" loading="lazy">
+<div class="ov"></div>
+<div class="wrap reveal">
+<div class="eyebrow" data-ar="الإنتاج">Production</div>
+<div class="h2" style="max-width:760px" data-ar="إنتاج دقيق. توريد منتظم.">Precision production. Reliable supply.</div>
 <div class="stats">
-<div><b>[X] t</b><span data-ar="الطاقة الشهرية">Monthly capacity</span></div>
-<div><b>[X]</b><span data-ar="دول نخدمها">Countries served</span></div>
-<div><b>[X]+</b><span data-ar="عملاء">Active clients</span></div>
+<div class="stat"><b>[X] t</b><span data-ar="الطاقة الشهرية">Monthly capacity</span></div>
+<div class="stat"><b>[X]</b><span data-ar="دول نخدمها">Countries served</span></div>
+<div class="stat"><b>[X]+</b><span data-ar="عملاء نشطون">Active clients</span></div>
+<div class="stat"><b>[X]</b><span data-ar="سنوات خبرة">Years in production</span></div>
 </div>
-<div class="map">Map: Egypt and Gulf client cities</div>
+</div>
 </section>
 
-<section id="client">
-<div class="tag" data-ar="آخر اللفة">END OF THE ROLL</div>
-<h2 data-ar="كن عميلاً">Become a client.</h2>
-<form onsubmit="event.preventDefault();this.querySelector('button').textContent='Thanks, we will contact you'">
-<div class="row">
-<div class="f"><label for="n" data-ar="الاسم">Name</label><input id="n"></div>
-<div class="f"><label for="c" data-ar="الشركة">Company</label><input id="c"></div>
+<section class="blk">
+<div class="wrap">
+<div class="values reveal">
+<div class="val"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><b data-ar="معايير عالمية">Global standards</b><span data-ar="جودة ثابتة في كل لوح وكل شحنة.">Consistent quality in every sheet and every shipment.</span></div>
+<div class="val"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19c0-8 6-14 15-14-1 9-7 15-15 14zM5 19l7-7"/></svg><b data-ar="حلول مستدامة">Sustainable solutions</b><span data-ar="ألواح من ألياف ورقية معاد تدويرها.">Board made from recycled paper fiber.</span></div>
+<div class="val"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 21h18M5 21V10l5 3V10l5 3V6l4 2v13"/></svg><b data-ar="مبني للمستقبل">Built for the future</b><span data-ar="شريك طويل الأمد لنمو مصنعك.">A long-term partner for your factory's growth.</span></div>
 </div>
-<div class="row">
-<div class="f"><label for="k" data-ar="الدولة">Country</label><input id="k"></div>
-<div class="f"><label for="g" data-ar="الجرام المطلوب">GSM needed</label><input id="g"></div>
 </div>
-<button class="btn btn-k" style="align-self:flex-start" data-ar="إرسال">Send</button>
+</section>
+
+<section class="blk reg" id="register">
+<div class="wrap split" style="align-items:start">
+<div class="reveal">
+<div class="eyebrow" data-ar="للشركات">For companies</div>
+<div class="h2" data-ar="افتح حساباً تجارياً.">Open a trade account.</div>
+<p class="lead" data-ar="أخبرنا عن إنتاجك وسيتواصل معك فريق المبيعات بعرض سعر وعينات.">Tell us about your production and our sales team will contact you with a quote and samples.</p>
+</div>
+<form class="card reveal" id="form">
+<div class="grid2">
+<div class="f"><label for="co" data-ar="اسم الشركة">Company name</label><input id="co" required></div>
+<div class="f"><label for="nm" data-ar="اسم المسؤول">Contact person</label><input id="nm" required></div>
+<div class="f"><label for="cn" data-ar="الدولة">Country</label><select id="cn"><option>Egypt</option><option>Saudi Arabia</option><option>UAE</option><option>Kuwait</option><option>Qatar</option><option>Bahrain</option><option>Oman</option><option>Other</option></select></div>
+<div class="f"><label for="ph" data-ar="الهاتف / واتساب">Phone / WhatsApp</label><input id="ph" type="tel" required></div>
+<div class="f"><label for="pr" data-ar="المنتج">Product</label><select id="pr"><option>Grey Board</option><option>Cardo Board</option><option>Custom sheets</option></select></div>
+<div class="f"><label for="gs" data-ar="الجرام المطلوب">GSM needed</label><select id="gs"><option>700 – 1000</option><option>1000 – 1500</option><option>1500 – 2000</option><option>Not sure</option></select></div>
+<div class="f" style="grid-column:1/-1"><label for="vo" data-ar="الكمية الشهرية (طن)">Monthly volume (tons)</label><input id="vo" inputmode="numeric"></div>
+</div>
+<button class="btn btn-k" style="margin-top:22px;width:100%" data-ar="إرسال الطلب">Submit request</button>
+<div class="ok" id="ok" data-ar="شكراً لك، سيتواصل معك فريقنا قريباً.">Thank you. Our team will contact you shortly.</div>
 </form>
-<div class="done">Pioneer Paper Industries · بايونير للصناعات الورقية</div>
+</div>
 </section>
-</main>
 
-<canvas id="roll" aria-hidden="true"></canvas>
+<footer><div class="wrap">
+<div style="display:flex;align-items:center;gap:12px"><img src="logo.jpg" alt="" style="height:30px;border-radius:5px"><span>Pioneer Paper Industries</span></div>
+<span dir="rtl" lang="ar" style="font-family:Cairo,sans-serif">بايونير للصناعات الورقية · نبني الجودة ونصنع الثقة</span>
+</div></footer>
+
+<a class="wa" href="#register" aria-label="Contact sales on WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg></a>
 
 <script>
-const cv=document.getElementById('roll'),ctx=cv.getContext('2d'),sheet=document.getElementById('sheet');
-const H=330;
-function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
-addEventListener('resize',()=>{size();draw()});size();
-
-const edge=document.getElementById('edge');for(let i=0;i<20;i++){edge.appendChild(document.createElement('i'))}
-const bars=[...edge.children];
-
-function prog(el){const r=el.getBoundingClientRect();return Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height*.4)))}
-
-function draw(){
-  const max=document.documentElement.scrollHeight-innerHeight, p=max>0?Math.min(1,scrollY/max):0;
-  const R=150, core=22, r=core+(R-core)*(1-p);
-  const sr=sheet.getBoundingClientRect(), x0=sr.left, x1=sr.right, w=x1-x0;
-  const lift=p>.88?(p-.88)/.12*(H+40):0, cy=r+14-lift, ex=r*.32;
-  ctx.clearRect(0,0,innerWidth,H);
-  ctx.fillStyle='#0B1428';ctx.fillRect(x0-2,0,w+4,Math.max(0,cy));
-  // shadow cast on the sheet
-  const sg=ctx.createLinearGradient(0,cy+r,0,cy+r+40);sg.addColorStop(0,'rgba(0,0,0,.35)');sg.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.fillStyle=sg;ctx.fillRect(x0,cy+r,w,40);
-  // body
-  const g=ctx.createLinearGradient(0,cy-r,0,cy+r);
-  g.addColorStop(0,'#7A5A38');g.addColorStop(.25,'#D9B88E');g.addColorStop(.45,'#E2C29A');g.addColorStop(.8,'#9C7448');g.addColorStop(1,'#5E4329');
-  ctx.fillStyle=g;ctx.fillRect(x0,cy-r,w,2*r);
-  // flutes spinning with scroll
-  const ph=-scrollY/ r, n=Math.max(10,Math.round(r/3.5));
-  ctx.strokeStyle='rgba(60,40,20,.28)';ctx.lineWidth=1;
-  for(let i=0;i<n;i++){const t=(i/n)*Math.PI*2+ph,c=Math.cos(t);if(Math.sin(t)<0)continue;const y=cy-r*c;ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x1,y);ctx.stroke()}
-  // right end (spiral layers)
-  ctx.save();ctx.translate(x1,cy);
-  ctx.fillStyle='#B98D5F';ctx.beginPath();ctx.ellipse(0,0,ex,r,0,0,7);ctx.fill();
-  ctx.strokeStyle='rgba(70,45,20,.45)';
-  for(let k=r;k>core;k-=4){ctx.beginPath();ctx.ellipse(0,0,ex*k/r,k,0,0,7);ctx.stroke()}
-  ctx.fillStyle='#1E2A44';ctx.beginPath();ctx.ellipse(0,0,ex*core/r,core,0,0,7);ctx.fill();
-  ctx.restore();
-  // left end edge
-  ctx.fillStyle='#8E6A44';ctx.beginPath();ctx.ellipse(x0,cy,ex,r,0,Math.PI/2,Math.PI*1.5);ctx.fill();
-  // GSM counter
-  const t=prog(document.getElementById('thick'));
-  const gsm=Math.round((700+1300*t)/50)*50;document.getElementById('gsmv').textContent=gsm;
-  const on=Math.round(4+16*t);bars.forEach((b,i)=>b.style.opacity=i<on?.85:.08);
-  // folds
-  const a=prog(document.getElementById('apps')),f=Math.min(1,Math.max(0,(a-.25)/.5));
-  document.querySelector('#book .l').style.transform=`rotateY(${f*-150}deg)`;
-  document.querySelector('#box .lid').style.transform=`rotateX(${-100+f*100}deg) translateY(${-f*40}px)`;
+const v=document.getElementById('film'),film=document.querySelector('.film'),hdr=document.getElementById('hdr');
+const caps=[['c1',0,.06,.2,.28],['c2',.32,.4,.56,.64],['c3',.7,.8,1.1,1.2]];
+let target=0,cur=0,dur=0;
+v.src=innerWidth<820?'https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/945920f0-add6-4d13-8eca-82288f1ed442.mp4':'https://d2ol7oe51mr4n9.cloudfront.net/user_3Gkc4NlUbxD6uta7cIgiEADmf8M/bcc98ae7-c5a0-482b-b16b-aecbe545bd65.mp4';
+v.addEventListener('loadedmetadata',()=>{dur=v.duration;v.pause()});
+// iOS: unlock seeking
+addEventListener('touchstart',()=>{v.play().then(()=>v.pause()).catch(()=>{})},{once:true,passive:true});
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+function fade(p,a,b,c,d){if(p<a||p>d)return 0;if(p<b)return (p-a)/(b-a);if(p<=c)return 1;return 1-(p-c)/(d-c)}
+function onScroll(){
+  const r=film.getBoundingClientRect(),total=film.offsetHeight-innerHeight;
+  const p=clamp(-r.top/total,0,1);target=p;
+  caps.forEach(([id,a,b,c,d])=>{const o=fade(p,a,b,c,d),e=document.getElementById(id);e.style.opacity=o;e.style.transform=`translateY(${(1-o)*24}px)`});
+  document.getElementById('c1').style.opacity=p<.06?1:fade(p,-1,0,.2,.28);document.getElementById('c1').style.transform='none';
+  document.getElementById('hint').style.opacity=p<.03?1:0;
+  document.getElementById('rail').style.height=(p*100)+'%';
+  hdr.classList.toggle('solid',scrollY>innerHeight*3.6);
+  // thickness counter
+  const g=document.getElementById('board').getBoundingClientRect();
+  const t=clamp((innerHeight*.85-g.top)/(g.height*.8),0,1);
+  document.getElementById('gsm').textContent=Math.round((700+1300*t)/50)*50;
+  document.getElementById('meter').style.width=(t*100)+'%';
+  // parallax
+  document.querySelectorAll('.par').forEach(i=>{const b=i.parentElement.getBoundingClientRect(),k=(b.top+b.height/2-innerHeight/2)/innerHeight;i.style.transform=`scale(1.1) translateY(${k*-30}px)`});
+  const f=document.querySelector('.fpar'),fb=f.parentElement.getBoundingClientRect();f.style.transform=`translateY(${(fb.top/innerHeight)*-60}px)`;
 }
-addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});draw();
-
-// language toggle
+function tick(){cur+= (target-cur)*.12; if(dur&&Math.abs(v.currentTime-cur*dur)>.01){try{v.currentTime=cur*(dur-.05)}catch(e){}} requestAnimationFrame(tick)}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();tick();
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+// form
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').style.display='block'});
+// language
 const els=[...document.querySelectorAll('[data-ar]')];els.forEach(e=>e.dataset.en=e.textContent);
-let ar=false;document.getElementById('lang').onclick=()=>{ar=!ar;document.documentElement.dir=ar?'rtl':'ltr';document.documentElement.lang=ar?'ar':'en';els.forEach(e=>e.textContent=ar?e.dataset.ar:e.dataset.en);draw()};
+let ar=false;document.getElementById('lang').onclick=()=>{ar=!ar;document.documentElement.dir=ar?'rtl':'ltr';document.documentElement.lang=ar?'ar':'en';els.forEach(e=>e.textContent=ar?e.dataset.ar:e.dataset.en);onScroll()};
 </script>
 </body>
 </html>
