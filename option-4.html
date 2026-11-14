@@ -24,7 +24,7 @@ nav a{color:#D5D9DE;text-decoration:none}nav a:hover{color:var(--kraft)}
 .btn-o{background:transparent;color:#D5D9DE;border:1px solid #3A4A6B;font-family:Cairo,sans-serif}
 
 /* the unrolled sheet */
-.sheet{position:relative;width:min(1000px,92vw);margin:0 auto;padding:120px 0 340px;
+.sheet{position:relative;width:min(1000px,92vw);margin:0 auto;padding:400px 0 120px;
 background:repeating-linear-gradient(180deg,rgba(0,0,0,.07) 0 2px,transparent 2px 9px),linear-gradient(90deg,#B98D5F,var(--kraft2) 12%,var(--kraft2) 88%,#B98D5F);
 box-shadow:0 0 60px rgba(0,0,0,.5)}
 section{padding:90px 7%;min-height:80vh;display:flex;flex-direction:column;justify-content:center;gap:22px}
@@ -79,7 +79,7 @@ input{min-height:44px;border-radius:8px;border:1px solid #3A4A6B;background:var(
 .done{text-align:center;color:var(--gray);font-size:13px;padding-top:40px}
 
 /* fixed roll */
-#roll{position:fixed;left:0;bottom:0;width:100vw;height:330px;pointer-events:none;z-index:10}
+#roll{position:fixed;left:0;top:64px;width:100vw;height:330px;pointer-events:none;z-index:10}
 </style>
 </head>
 <body>
@@ -177,17 +177,18 @@ function draw(){
   const max=document.documentElement.scrollHeight-innerHeight, p=max>0?Math.min(1,scrollY/max):0;
   const R=150, core=22, r=core+(R-core)*(1-p);
   const sr=sheet.getBoundingClientRect(), x0=sr.left, x1=sr.right, w=x1-x0;
-  const cy=H-r-20, ex=r*.32;
+  const lift=p>.88?(p-.88)/.12*(H+40):0, cy=r+14-lift, ex=r*.32;
   ctx.clearRect(0,0,innerWidth,H);
-  ctx.fillStyle='#0B1428';ctx.fillRect(x0-2,cy,w+4,H-cy);
-  // shadow
-  ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.ellipse(innerWidth/2,H-12,w*.55,10,0,0,7);ctx.fill();
+  ctx.fillStyle='#0B1428';ctx.fillRect(x0-2,0,w+4,Math.max(0,cy));
+  // shadow cast on the sheet
+  const sg=ctx.createLinearGradient(0,cy+r,0,cy+r+40);sg.addColorStop(0,'rgba(0,0,0,.35)');sg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=sg;ctx.fillRect(x0,cy+r,w,40);
   // body
   const g=ctx.createLinearGradient(0,cy-r,0,cy+r);
   g.addColorStop(0,'#7A5A38');g.addColorStop(.25,'#D9B88E');g.addColorStop(.45,'#E2C29A');g.addColorStop(.8,'#9C7448');g.addColorStop(1,'#5E4329');
   ctx.fillStyle=g;ctx.fillRect(x0,cy-r,w,2*r);
   // flutes spinning with scroll
-  const ph=scrollY/ r, n=Math.max(10,Math.round(r/3.5));
+  const ph=-scrollY/ r, n=Math.max(10,Math.round(r/3.5));
   ctx.strokeStyle='rgba(60,40,20,.28)';ctx.lineWidth=1;
   for(let i=0;i<n;i++){const t=(i/n)*Math.PI*2+ph,c=Math.cos(t);if(Math.sin(t)<0)continue;const y=cy-r*c;ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x1,y);ctx.stroke()}
   // right end (spiral layers)
