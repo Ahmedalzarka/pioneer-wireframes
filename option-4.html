@@ -252,6 +252,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(40px + var(--bar) + 
   .hint i{animation:none}
   *,*::before,*::after{transition-duration:.01ms!important}
 }
+
+/* line-art illustration icons */
+.ill{color:var(--kraft);stroke-width:1.4}
+.spec{grid-template-columns:1fr;row-gap:10px}
+.spec .ill{grid-row:auto;width:68px;height:68px;margin-bottom:10px}
+.val .ic{flex-direction:column;align-items:flex-start;gap:18px}
+.val .ill{width:80px;height:80px}
+@media(max-width:600px){
+  .spec,.spec:first-child{grid-template-columns:52px 1fr auto;column-gap:14px}
+  .spec .ill{width:48px;height:48px;margin:0}
+  .val .ill{width:68px;height:68px}
+}
+@media(hover:hover){.spec .ill,.val .ill{transition:transform .4s var(--ease),color .3s}.spec:hover .ill,.val:hover .ill{transform:translateY(-3px);color:var(--kraft2)}}
 </style>
 </head>
 <body>
@@ -319,10 +332,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(40px + var(--bar) + 
 <section class="blk" style="padding-top:0;padding-bottom:clamp(40px,6vw,72px)" aria-label="Specifications">
 <div class="wrap">
 <div class="specs reveal">
-<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5"/></svg><small data-ar="كرتون رمادي">GREY BOARD</small><strong>700 – 2000 GSM</strong></div>
-<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 7v4M21 7v4M7 7v2M11 7v2M15 7v2M19 7v2M3 15h18v4H3z"/></svg><small data-ar="الألواح">SHEETS</small><strong data-ar="عرض ١٤٠ سم">140 cm width</strong></div>
-<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="18" cy="6" r="1.5"/><circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/><circle cx="6" cy="18" r="1.5"/><circle cx="12" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg><small data-ar="الكثافة">DENSITY</small><strong data-ar="كثافات متعددة">Multiple densities</strong></div>
-<div class="spec"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8"/></svg><small data-ar="الاستخدامات">USE</small><strong data-ar="تغليف وأغلفة صلبة">Packaging & hard covers</strong></div>
+<div class="spec"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 10 56 22 32 34 8 22Z"/><path d="M17 18.5 39 29.5M25 14.5 47 25.5"/><path d="M8 22v6l24 12 24-12v-6M8 28v6l24 12 24-12v-6M8 34v6l24 12 24-12v-6"/></svg><small data-ar="كرتون رمادي">GREY BOARD</small><strong>700 – 2000 GSM</strong></div>
+<div class="spec"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 9h44M14 6l-4 3 4 3M50 6l4 3-4 3"/><path d="M10 17h36l8 8v22H10Z"/><path d="M46 17v8h8"/><path d="M10 55h44M10 55v-4M18.8 55v-2.5M27.6 55v-4M36.4 55v-2.5M45.2 55v-4M54 55v-4"/><path d="M17 29h18M17 35h24M17 41h12"/></svg><small data-ar="الألواح">SHEETS</small><strong data-ar="عرض ١٤٠ سم">140 cm width</strong></div>
+<div class="spec"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="30" height="3" rx="1"/><rect x="6" y="18" width="30" height="5" rx="1"/><rect x="6" y="28" width="30" height="7" rx="1"/><rect x="6" y="40" width="30" height="10" rx="1"/><circle cx="46" cy="38" r="10"/><path d="M40 35h12M40 38.5h12M40 42h12"/><path d="M53.5 45.5 60 52"/></svg><small data-ar="الكثافة">DENSITY</small><strong data-ar="كثافات متعددة">Multiple densities</strong></div>
+<div class="spec"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="10" width="21" height="40" rx="2"/><path d="M12 10v40M16 18h8M16 22h6"/><path d="M33 36l13-7 13 7-13 7Z"/><path d="M33 36v13l13 7 13-7V36M46 43v13"/><path d="M39.5 32.5l13 7v5"/></svg><small data-ar="الاستخدامات">USE</small><strong data-ar="تغليف وأغلفة صلبة">Packaging & hard covers</strong></div>
 </div>
 </div>
 </section>
@@ -359,9 +372,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(40px + var(--bar) + 
 <section class="blk" aria-label="Values">
 <div class="wrap">
 <div class="values reveal">
-<div class="val"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><b data-ar="معايير عالمية">Global standards</b></div><span data-ar="جودة ثابتة في كل لوح وكل شحنة.">Consistent quality in every sheet and every shipment.</span></div>
-<div class="val"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19c0-8 6-14 15-14-1 9-7 15-15 14zM5 19l7-7"/></svg><b data-ar="حلول مستدامة">Sustainable solutions</b></div><span data-ar="ألواح من ألياف ورقية معاد تدويرها.">Board made from recycled paper fiber.</span></div>
-<div class="val"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 21h18M5 21V10l5 3V10l5 3V6l4 2v13"/></svg><b data-ar="مبني للمستقبل">Built for the future</b></div><span data-ar="شريك طويل الأمد لنمو مصنعك.">A long-term partner for your factory's growth.</span></div>
+<div class="val"><div class="ic"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="28" cy="30" r="18"/><ellipse cx="28" cy="30" rx="8" ry="18"/><path d="M10 30h36M13 21h30M13 39h30"/><circle cx="48" cy="46" r="10" fill="var(--deep)"/><path d="m43.5 46 3 3 6-6"/></svg><b data-ar="معايير عالمية">Global standards</b></div><span data-ar="جودة ثابتة في كل لوح وكل شحنة.">Consistent quality in every sheet and every shipment.</span></div>
+<div class="val"><div class="ic"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 30A20 20 0 0 1 46 15"/><path d="M46 8v7h-7"/><path d="M52 34A20 20 0 0 1 18 49"/><path d="M18 56v-7h7"/><path d="M23 41c0-11 8-17 18-17 0 10-6 17-18 17Z"/><path d="M23 41 35 30"/></svg><b data-ar="حلول مستدامة">Sustainable solutions</b></div><span data-ar="ألواح من ألياف ورقية معاد تدويرها.">Board made from recycled paper fiber.</span></div>
+<div class="val"><div class="ic"><svg class="ill" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 54h52"/><path d="M9 54V33l11 7v-7l11 7v-7l11 7v14"/><path d="M45 54V22h7v32"/><path d="M14 47h4M25 47h4M36 47h4"/><circle cx="49" cy="14" r="3"/><circle cx="56" cy="8" r="2"/></svg><b data-ar="مبني للمستقبل">Built for the future</b></div><span data-ar="شريك طويل الأمد لنمو مصنعك.">A long-term partner for your factory's growth.</span></div>
 </div>
 </div>
 </section>
