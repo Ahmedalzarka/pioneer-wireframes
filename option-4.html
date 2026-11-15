@@ -52,6 +52,9 @@ header.solid,body.menu-open header{background:rgba(10,19,38,.88);-webkit-backdro
 @media(hover:hover){.btn:hover{transform:translateY(-1px)}.btn-k:hover{background:var(--kraft2)}.btn-g:hover{border-color:var(--kraft);color:var(--kraft2)}}
 .lang{min-height:44px;padding:0 16px;font-size:14px}
 .lang[data-to=ar]{font-family:Cairo,sans-serif;font-size:15px}
+.lang{gap:8px}
+.lang .flag{flex-shrink:0;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.lang[data-to=en] .flag:not(.flag-en),.lang[data-to=ar] .flag-en{display:none}
 .burger{display:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--silver);cursor:pointer;align-items:center;justify-content:center}
 .burger i,.burger i::before{display:block;width:18px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .35s var(--ease)}
 .burger i{position:relative;transform:translateY(-3px)}
@@ -273,7 +276,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(40px + var(--bar) + 
 <a class="brand" href="#top" aria-label="Pioneer Paper Industries, back to top"><img src="logo.jpg" alt="" width="64" height="36"><span>PIONEER</span></a>
 <nav class="nav" aria-label="Main"><a href="#board" data-ar="الكرتون">Grey Board</a><a href="#uses" data-ar="الاستخدامات">Applications</a><a href="#factory" data-ar="المصنع">Factory</a><a href="#register" data-ar="تواصل">Contact</a></nav>
 <div class="actions">
-<button class="btn btn-g lang" id="lang" data-to="ar" lang="ar" aria-label="التبديل إلى العربية">عربي</button>
+<button class="btn btn-g lang" id="lang" data-to="ar" lang="ar" aria-label="التبديل إلى العربية"><svg class="flag" width="22" height="15" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" rx="2.5" fill="#006C35"/><path d="M7 7.2c1.2-.9 1.6.6 2.6-.2s.8.8 1.9 0 1.1.7 2.2-.1.9.6 2 0 1.2.8 2.3 0 1 .7 2.1-.1 1.1.6 2.2 0 .8.7 1.7.2M8.5 10.2c1-.7 1.5.5 2.4-.2s.9.6 1.9-.1 1 .6 2 0 1 .7 2 0 1 .6 2 0 1 .5 1.9 0" fill="none" stroke="#fff" stroke-width=".9" stroke-linecap="round"/><path d="M8 14h13.5l1.5-.9M9.8 13.2v1.6" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round"/></svg><svg class="flag flag-en" width="22" height="15" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="ukc"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg><span id="langTxt">عربي</span></button>
 <a class="btn btn-k" href="#register" data-ar="افتح حساب تجاري">Open Trade Account</a>
 <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i></button>
 </div>
@@ -511,7 +514,7 @@ let ar=false;const lang=$('lang');
 lang.onclick=()=>{
   ar=!ar;const h=document.documentElement;h.dir=ar?'rtl':'ltr';h.lang=ar?'ar':'en';
   els.forEach(e=>e.textContent=ar?e.dataset.ar:e.dataset.en);
-  lang.textContent=ar?'English':'عربي';lang.dataset.to=ar?'en':'ar';lang.lang=ar?'en':'ar';
+  $('langTxt').textContent=ar?'English':'عربي';lang.dataset.to=ar?'en':'ar';lang.lang=ar?'en':'ar';
   lang.setAttribute('aria-label',ar?'Switch to English':'التبديل إلى العربية');
   setMenu(document.body.classList.contains('menu-open'));
   onScroll();
